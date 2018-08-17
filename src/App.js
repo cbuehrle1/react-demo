@@ -6,14 +6,19 @@ import ButtonSpace from './data.js';
 class App extends Component {
   constructor(){
     super()
-    this.setState({
+    this.state = {
       colors: {},
       phase: 0
-    });
+    };
   }
 
-  sendButtonCount() {
-    let count;
+  sendButtonCount(val) {
+    const count = val;
+    ButtonSpace.buttonInitialize();
+    this.setState({
+      colors: ButtonSpace.passTheColors(),
+      phase: 1
+    });
   }
 
   currentPhase() {
@@ -22,14 +27,15 @@ class App extends Component {
         <div className='App'>
           <label for='count'>How many buttons?</label>
           <input id='count' />
-          <button onClick={}>Submit</button>
+          <button onClick={event => {this.sendButtonCount(event.targe.value)}}>Submit</button>
         </div>
       )
     }
     else{
+
       return (
         <div className="App">
-          <Switchboard count={ButtonSpace.count} colors={ButtonSpace.buttonColors} />
+          <Switchboard count={ButtonSpace.passColorLength()} colors={ButtonSpace.buttonColors} />
         </div>
       )
     }
