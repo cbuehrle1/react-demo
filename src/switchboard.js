@@ -3,16 +3,17 @@ import Button from './button.js';
 
 class Switchboard extends Component {
 
-  renderButton(i) {
-    return <Button value={i}/>
+  renderButton(i, color) {
+    return <Button key={i} color={color}/>
   }
 
   buttonLoop() {
     let result =[]
-    for(var i = 1; i < this.props.count; i++){
-      let button = this.renderButton(i);
+    console.log(this.props);
+    this.props.colors.forEach((color, index) => {
+      let button = this.renderButton(index, color);
       result.push(button);
-    }
+    });
     return result;
   }
 

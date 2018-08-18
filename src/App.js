@@ -8,26 +8,28 @@ class App extends Component {
     super()
     this.state = {
       colors: {},
-      phase: 0
+      phase: 0,
+      count: 0
     };
   }
 
-  sendButtonCount(val) {
-    const count = val;
-    ButtonSpace.buttonInitialize();
+  sendButtonCount() {
+    const count = this.state.count;
+    ButtonSpace.buttonInitialize(count);
     this.setState({
       colors: ButtonSpace.passTheColors(),
-      phase: 1
+      phase: 1,
+      count: count
     });
   }
 
   currentPhase() {
-    if (this.state.phase) {
+    if (!this.state.phase) {
       return (
         <div className='App'>
-          <label for='count'>How many buttons?</label>
-          <input id='count' />
-          <button onClick={event => {this.sendButtonCount(event.targe.value)}}>Submit</button>
+          <label htmlFor='count'>How many buttons?</label>
+          <input id='count' onChange={event => {this.setState({ count: event.target.value })}}/>
+          <button onClick={() => {this.sendButtonCount()}}>Submit</button>
         </div>
       )
     }
@@ -35,7 +37,7 @@ class App extends Component {
 
       return (
         <div className="App">
-          <Switchboard count={ButtonSpace.passColorLength()} colors={ButtonSpace.buttonColors} />
+          <Switchboard count={this.state.count} colors={this.state.colors} />
         </div>
       )
     }

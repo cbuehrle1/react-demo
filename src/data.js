@@ -5,6 +5,7 @@ let buttonSpace = {
       for (var i = 0; i < count; i++) {
         buttonColors[i] = 'red';
       }
+      console.log('hello');
     },
 
     passTheColors: function () {
