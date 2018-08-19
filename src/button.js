@@ -4,7 +4,9 @@ class Button extends Component {
 
   render() {
     return (
-      <button>{this.props.color}</button>
+      <button onClick={this.props.onClick}>
+        {this.props.color}
+      </button>
     )
   }
 }

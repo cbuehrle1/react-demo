@@ -4,12 +4,18 @@ import Button from './button.js';
 class Switchboard extends Component {
 
   renderButton(i, color) {
-    return <Button key={i} color={color}/>
+    return (
+      <Button
+        key={i}
+        id={i}
+        color={color}
+        onClick={() => {this.props.onClick(i)}}
+      />
+    )
   }
 
   buttonLoop() {
-    let result =[]
-    console.log(this.props);
+    let result = []
     this.props.colors.forEach((color, index) => {
       let button = this.renderButton(index, color);
       result.push(button);

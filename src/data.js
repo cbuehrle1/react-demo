@@ -2,21 +2,25 @@ let buttonColors = []
 let buttonSpace = {
 
     buttonInitialize: function (count) {
-      for (var i = 0; i < count; i++) {
+      for (let i = 0; i < count; i++) {
         buttonColors[i] = 'red';
       }
-      console.log('hello');
     },
 
     passTheColors: function () {
       return buttonColors;
     },
 
-    passColorLength: function () {
-      const result = buttonColors.length > 1 ? buttonColors.length : 0;
-      return result;
+    resetButtonColors: function () {
+      buttonColors = [];
+    },
+
+    updateColors: function (id) {
+      let newButtonColors = buttonColors;
+      newButtonColors[id] = newButtonColors[id] === 'red' ? 'green' : 'red';
+      buttonColors = newButtonColors;
     }
 
-  };
+};
 
 export default buttonSpace;

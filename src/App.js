@@ -23,6 +23,24 @@ class App extends Component {
     });
   }
 
+  reset() {
+    ButtonSpace.resetButtonColors();
+    this.setState({
+      colors: {},
+      phase: 0,
+      count: 0
+    });
+  }
+
+  handleButtonChange(id) {
+    ButtonSpace.updateColors(id);
+    this.setState({
+      colors: ButtonSpace.passTheColors(),
+      phase: this.state.phase,
+      count: this.state.count
+    });
+  }
+
   currentPhase() {
     if (!this.state.phase) {
       return (
@@ -34,10 +52,18 @@ class App extends Component {
       )
     }
     else{
-
       return (
         <div className="App">
-          <Switchboard count={this.state.count} colors={this.state.colors} />
+          <Switchboard
+            count={this.state.count}
+            colors={this.state.colors}
+            onClick={(id) => {this.handleButtonChange(id)}}
+          />
+          <div>
+            <button onClick={() => {this.reset()}}>
+              Go Back to 0
+            </button>
+          </div>
         </div>
       )
     }
