@@ -27,9 +27,14 @@
 .green{
   background-color: green;
 }
+.block{
+  display: block;
+  margin: .5% auto;
+}
 button{
   display: inline-block;
   padding: 1rem 2rem;
+  border-color: black;
   margin: .5%;
   text-decoration: none;
   color: black;
@@ -41,6 +46,9 @@ button{
               transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+input{
+  margin: 1%;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

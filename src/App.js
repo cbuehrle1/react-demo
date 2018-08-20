@@ -47,7 +47,7 @@ class App extends Component {
         <div className='App'>
           <label htmlFor='count'>How many buttons?</label>
           <input id='count' onChange={event => {this.setState({ count: event.target.value })}}/>
-          <button onClick={() => {this.sendButtonCount()}}>Submit</button>
+          <button className='block' onClick={() => {this.sendButtonCount()}}>Submit</button>
         </div>
       )
     }
