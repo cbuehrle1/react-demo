@@ -4,8 +4,8 @@ import Switchboard from './switchboard.js';
 import ButtonSpace from './data.js';
 
 class App extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       colors: {},
       phase: 0,
